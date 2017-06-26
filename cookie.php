@@ -16,11 +16,13 @@ if(!isset($_COOKIE[$cookie_name])) {
  $dbname="db_1";
  $conn=mysqli_connect($servername,$username,$password,$dbname);
  if(!$conn){ die("connection failed:".mysqli_connect_error());}
- $sql="INSERT INTO `login`(username,pass,num) VALUES ('aaa',02,17)";
+
+ $sql="UPDATE `login` SET num = num + 1 WHERE username = 'aayu'";
  $result = mysqli_query($conn,$sql);
  mysqli_close($conn);
 
-} else {
+}
+ else {
     echo "Cookie '" . $cookie_name . "' is set!<br>";
     echo "Value is: " . $_COOKIE[$cookie_name];
 }
